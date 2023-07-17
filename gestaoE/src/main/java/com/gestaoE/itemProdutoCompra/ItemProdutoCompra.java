@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.gestaoE.produto;
+package com.gestaoE.itemProdutoCompra;
 
 
 import br.edu.ifms.arch.BaseObject;
+import com.gestaoE.produto.Produto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
@@ -25,13 +26,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 @SequenceGenerator(sequenceName = "produto_sequence", name = "baseObjectSequence", allocationSize = 1)
-public class Produto extends BaseObject {
+public class ItemProdutoCompra extends BaseObject {
 
-        private long codigoProduto, saidaQuantidade, entradaQuantidade;
-        private String descricao, data;
-        private double precoCusto, precoVenda;
-        
-        public void validarProduto(){};
-        public void calcularSaldo(){};
+    private Produto produto;
+    private int quantidade;
+    
+    public void validarItemProduto(){};
  
 }

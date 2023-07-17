@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.gestaoE.produto;
+package com.gestaoE.itemProdutoCompra;
 
 import br.edu.ifms.arch.controller.AbstractSimpleController;
 import java.net.URI;
@@ -16,21 +16,21 @@ import org.springframework.web.util.UriComponentsBuilder;
  * @author valti
  */
 @RestController
-@RequestMapping("/api/produto")
-public class ProdutoController 
-        extends AbstractSimpleController<Produto, Long, ProdutoDto, ProdutoForm, 
-        ProdutoRepository, ProdutoService>  {
+@RequestMapping("/api/itemProdutoCompra")
+public class ItemProdutoCompraController 
+        extends AbstractSimpleController<ItemProdutoCompra, Long, ItemProdutoCompraDto, 
+        ItemProdutoCompraForm, ItemProdutoCompraRepository, ItemProdutoCompraService>  {
 
     @Autowired
     @Override
-    public void setService(ProdutoService service) {
+    public void setService(ItemProdutoCompraService service) {
         super.service = service;
-        super.setMapper(ProdutoMapper.INSTANCE);
+        super.setMapper(ItemProdutoCompraMapper.INSTANCE);
     }
 
     @Override
-    public URI createUri(Produto entity, UriComponentsBuilder uriBuilder) {
-        return uriBuilder.path("/api/produto/{id}")
+    public URI createUri(ItemProdutoCompra entity, UriComponentsBuilder uriBuilder) {
+        return uriBuilder.path("/api/itemProdutoCompra/{id}")
                 .buildAndExpand(entity.getId())
                 .toUri();
     }
