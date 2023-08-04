@@ -4,7 +4,7 @@
  */
 package com.gestaoE.itemProdutoCompra;
 
-import br.edu.ifms.arch.controller.AbstractSimpleController;
+import com.gestaoE.arch.controller.AbstractSimpleController;
 import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ifms.arch.service;
+package com.gestaoE.arch.service;
 
-import br.edu.ifms.arch.BaseObjectNotFoundException;
-import br.edu.ifms.arch.ISimpleMapper;
-import br.edu.ifms.arch.MapperUtils;
+import com.gestaoE.arch.BaseObjectNotFoundException;
+import com.gestaoE.arch.ISimpleMapper;
+import com.gestaoE.arch.MapperUtils;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import br.edu.ifms.arch.repository.IArchRepository;
+import com.gestaoE.arch.repository.IArchRepository;
 
 /**
  *

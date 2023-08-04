@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ifms.arch.controller;
+package com.gestaoE.arch.controller;
 
-import br.edu.ifms.arch.ILeanMapper;
-import br.edu.ifms.arch.MapperUtils;
+import com.gestaoE.arch.ILeanMapper;
+import com.gestaoE.arch.MapperUtils;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import br.edu.ifms.arch.repository.IArchRepository;
-import br.edu.ifms.arch.service.IService;
+import com.gestaoE.arch.repository.IArchRepository;
+import com.gestaoE.arch.service.IService;
 import java.net.URI;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.util.UriComponentsBuilder;

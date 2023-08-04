@@ -1,9 +1,12 @@
 package com.gestaoE.produto;
+
 import com.gestaoE.gestaoE.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+
 public class Produto_DAO {
     public void create (Produto produto){
         String sql = "INSERT INTO tb_Produto ("

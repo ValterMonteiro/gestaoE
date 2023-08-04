@@ -1,6 +1,6 @@
 package com.gestaoE.itemProdutoVenda;
 
-import com.mycompany.gestaoe.Produto;
+import com.gestaoE.produto.Produto;
 
 public class ItemProdutoVenda {
     	private Produto produto;

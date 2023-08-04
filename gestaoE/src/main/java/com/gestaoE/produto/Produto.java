@@ -5,7 +5,7 @@
 package com.gestaoE.produto;
 
 
-import br.edu.ifms.arch.BaseObject;
+import com.gestaoE.arch.BaseObject;
 import jakarta.persistence.Entity;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;

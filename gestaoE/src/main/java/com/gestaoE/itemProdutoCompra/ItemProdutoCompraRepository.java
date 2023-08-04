@@ -4,7 +4,7 @@
  */
 package com.gestaoE.itemProdutoCompra;
 
-import br.edu.ifms.arch.repository.IArchRepository;
+import com.gestaoE.arch.repository.IArchRepository;
 import org.springframework.stereotype.Repository;
 
 /**

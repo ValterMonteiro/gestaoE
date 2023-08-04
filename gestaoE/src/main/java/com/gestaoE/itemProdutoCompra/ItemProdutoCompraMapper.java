@@ -4,8 +4,8 @@
  */
 package com.gestaoE.itemProdutoCompra;
 
-import br.edu.ifms.arch.BaseObjectMapper;
-import br.edu.ifms.arch.ISimpleMapper;
+import com.gestaoE.arch.BaseObjectMapper;
+import com.gestaoE.arch.ISimpleMapper;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

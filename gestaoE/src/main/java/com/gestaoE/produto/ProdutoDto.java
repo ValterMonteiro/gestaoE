@@ -4,7 +4,7 @@
  */
 package com.gestaoE.produto;
 
-import br.edu.ifms.arch.dto.AdapterBaseObjectDto;
+import com.gestaoE.arch.dto.AdapterBaseObjectDto;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -1,8 +1,11 @@
 package com.gestaoE.itemProdutoCompra;
+
 import com.gestaoE.gestaoE.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+
 public class ItemProdutoCompraDAO {
     public void create (ItemProdutoCompra itemProditoCompra){
         String sql = "INSERT INTO tb_Item_Produtos_Compras (username, password, email, name, endereco) VALUES (?,?,?,?,?);";

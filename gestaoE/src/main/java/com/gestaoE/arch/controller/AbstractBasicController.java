@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ifms.arch.controller;
+package com.gestaoE.arch.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import br.edu.ifms.arch.repository.IArchRepository;
-import br.edu.ifms.arch.service.IBasicService;
+import com.gestaoE.arch.repository.IArchRepository;
+import com.gestaoE.arch.service.IBasicService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;

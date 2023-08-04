@@ -5,7 +5,7 @@
 package com.gestaoE.itemProdutoCompra;
 
 
-import br.edu.ifms.arch.service.AbstractService;
+import com.gestaoE.arch.service.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
