@@ -13,10 +13,7 @@ import org.mapstruct.factory.Mappers;
 import br.com.gestaoe.arch.BaseObjectMapper;
 import br.com.gestaoe.arch.ISimpleMapper;
 
-@Mapper(
-        config = BaseObjectMapper.class
-        
-)
+@Mapper(config = BaseObjectMapper.class)
 public interface ProdutoMapper extends ISimpleMapper<Produto, ProdutoDto, ProdutoForm> {
 
     public static final ProdutoMapper INSTANCE = Mappers.getMapper(ProdutoMapper.class);
