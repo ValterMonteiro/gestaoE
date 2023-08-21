@@ -4,9 +4,10 @@
  */
 package br.com.gestaoe.produto;
 
-import br.com.gestaoe.arch.repository.IArchRepository;
+import br.edu.ifms.arch.v010.repository.IArchRepository;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
 public interface ProdutoRepository  extends IArchRepository<Produto, Long>{
     
 }

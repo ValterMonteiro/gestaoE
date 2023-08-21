@@ -7,7 +7,7 @@ package br.com.gestaoe.produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.gestaoe.arch.service.AbstractService;
+import br.edu.ifms.arch.v010.service.AbstractService;
 
 @Service
 public class ProdutoService 
