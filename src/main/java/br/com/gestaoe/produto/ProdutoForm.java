@@ -6,9 +6,8 @@ package br.com.gestaoe.produto;
 
 import java.time.LocalDate;
 
-import br.com.gestaoe.arch.dto.AdapterBaseObjectForm;
+import br.edu.ifms.arch.v010.dto.AdapterBaseObjectForm;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

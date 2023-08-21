@@ -10,8 +10,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
-import br.com.gestaoe.arch.BaseObjectMapper;
-import br.com.gestaoe.arch.ISimpleMapper;
+import br.edu.ifms.arch.v010.BaseObjectMapper;
+import br.edu.ifms.arch.v010.ISimpleMapper;
 
 @Mapper(config = BaseObjectMapper.class)
 public interface ProdutoMapper extends ISimpleMapper<Produto, ProdutoDto, ProdutoForm> {

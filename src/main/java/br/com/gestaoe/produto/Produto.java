@@ -7,7 +7,7 @@ package br.com.gestaoe.produto;
 
 import java.time.LocalDate;
 
-import br.com.gestaoe.arch.BaseObject;
+import br.edu.ifms.arch.v010.BaseObject;
 import jakarta.persistence.Entity;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
