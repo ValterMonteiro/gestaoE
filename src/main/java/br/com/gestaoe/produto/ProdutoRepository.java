@@ -4,10 +4,10 @@
  */
 package br.com.gestaoe.produto;
 
-import br.edu.ifms.arch.v010.repository.IArchRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProdutoRepository  extends IArchRepository<Produto, Long>{
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     
 }
