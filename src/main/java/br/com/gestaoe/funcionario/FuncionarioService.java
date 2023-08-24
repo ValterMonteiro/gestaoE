@@ -40,8 +40,8 @@ public class FuncionarioService {
 	public FuncionarioDto insert(FuncionarioDto dto) {
 		Funcionario entity = new Funcionario();
 		
-		entity.setRazaoSocial(dto.getRazaoSocial());
-		entity.setCnpj(dto.getCnpj());
+		entity.setNome(dto.getNome());
+		entity.setCpf(dto.getCpf());
 		entity.setRua(dto.getRua());
 		entity.setNumero(dto.getNumero()); 
 		entity.setBairro(dto.getBairro());
@@ -62,8 +62,8 @@ public class FuncionarioService {
 		try {
 			Funcionario entity = repository.getReferenceById(id);
 			
-			entity.setRazaoSocial(dto.getRazaoSocial());
-			entity.setCnpj(dto.getCnpj());
+			entity.setNome(dto.getNome());
+			entity.setCpf(dto.getCpf());
 			entity.setRua(dto.getRua());
 			entity.setNumero(dto.getNumero()); 
 			entity.setBairro(dto.getBairro());

@@ -5,7 +5,6 @@
 package br.com.gestaoe.funcionario;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 
 
@@ -17,8 +16,8 @@ public class FuncionarioDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String razaoSocial;
-	private String cnpj;
+	private String nome;
+	private String cpf;
 	private String rua;
 	private Integer numero;
 	private String bairro;
@@ -32,12 +31,12 @@ public class FuncionarioDto implements Serializable {
 	public FuncionarioDto(){}
 	
 	
-	public FuncionarioDto(Long id, String razaoSocial, String cnpj, String rua, Integer numero, String bairro,
+	public FuncionarioDto(Long id, String nome, String cpf, String rua, Integer numero, String bairro,
 			String cidade, Long cep, String uf, Long telefone, String email) {
 		
 		this.id = id;
-		this.razaoSocial = razaoSocial;
-		this.cnpj = cnpj;
+		this.nome = nome;
+		this.cpf = cpf;
 		this.rua = rua;
 		this.numero = numero;
 		this.bairro = bairro;
@@ -51,8 +50,8 @@ public class FuncionarioDto implements Serializable {
 
 	public FuncionarioDto(Funcionario entity) {
 		this.id = entity.getId();
-		this.razaoSocial = entity.getRazaoSocial();
-		this.cnpj = entity.getCnpj();
+		this.nome = entity.getNome();
+		this.cpf = entity.getCpf();
 		this.rua = entity.getRua();
 		this.numero = entity.getNumero();
 		this.bairro = entity.getBairro();
@@ -74,23 +73,23 @@ public class FuncionarioDto implements Serializable {
 	}
 
 
-	public String getRazaoSocial() {
-		return razaoSocial;
+	public String getNome() {
+		return nome;
 	}
 
 
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 
-	public String getCnpj() {
-		return cnpj;
+	public String getCpf() {
+		return cpf;
 	}
 
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 

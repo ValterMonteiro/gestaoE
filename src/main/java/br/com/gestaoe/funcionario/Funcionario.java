@@ -28,8 +28,8 @@ public class Funcionario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String razaoSocial;
-	private String cnpj;
+	private String nome;
+	private String cpf;
 	private String rua;
 	private Integer numero;
 	private String bairro;
@@ -44,11 +44,11 @@ public class Funcionario implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Funcionario(Long id, String razaoSocial, String cnpj, String rua, Integer numero, String bairro,
+	public Funcionario(Long id, String razaoSocial, String cpf, String rua, Integer numero, String bairro,
 			String cidade, Long cep, String uf, Long telefone, String email) {
 		this.id = id;
-		this.razaoSocial = razaoSocial;
-		this.cnpj = cnpj;
+		this.nome = razaoSocial;
+		this.cpf = cpf;
 		this.rua = rua;
 		this.numero = numero;
 		this.bairro = bairro;
@@ -67,20 +67,20 @@ public class Funcionario implements Serializable {
 		this.id = id;
 	}
 
-	public String getRazaoSocial() {
-		return razaoSocial;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getCnpj() {
-		return cnpj;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getRua() {
@@ -149,7 +149,7 @@ public class Funcionario implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(bairro, cep, cidade, cnpj, email, id, numero, razaoSocial, rua, telefone, uf);
+		return Objects.hash(bairro, cep, cidade, cpf, email, id, numero, nome, rua, telefone, uf);
 	}
 
 	@Override
@@ -162,9 +162,9 @@ public class Funcionario implements Serializable {
 			return false;
 		Funcionario other = (Funcionario) obj;
 		return Objects.equals(bairro, other.bairro) && Objects.equals(cep, other.cep)
-				&& Objects.equals(cidade, other.cidade) && Objects.equals(cnpj, other.cnpj)
+				&& Objects.equals(cidade, other.cidade) && Objects.equals(cpf, other.cpf)
 				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
-				&& Objects.equals(numero, other.numero) && Objects.equals(razaoSocial, other.razaoSocial)
+				&& Objects.equals(numero, other.numero) && Objects.equals(nome, other.nome)
 				&& Objects.equals(rua, other.rua) && Objects.equals(telefone, other.telefone)
 				&& Objects.equals(uf, other.uf);
 	}
