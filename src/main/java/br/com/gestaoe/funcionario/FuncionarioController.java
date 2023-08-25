@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping("/api/produtos")
+@RequestMapping("/api/funcionarios")
 public class FuncionarioController {
 
     @Autowired

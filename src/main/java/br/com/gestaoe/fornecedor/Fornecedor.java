@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
  * 
  */
 @Entity
-@Table(name = "tb_produto")
+@Table(name = "tb_fornecedor")
 public class Fornecedor implements Serializable {
 
 	private static final long serialVersionUID = 1L;
