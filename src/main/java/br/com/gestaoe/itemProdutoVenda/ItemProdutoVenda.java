@@ -7,6 +7,9 @@ package br.com.gestaoe.itemProdutoVenda;
 
 import java.util.Objects;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import br.com.gestaoe.produto.Produto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +33,8 @@ public class ItemProdutoVenda{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	//@JdbcTypeCode(SqlTypes.JSON)
 	@ManyToOne
 	@JoinColumn(name = "id_produto_fk")
 	private Produto produto;
