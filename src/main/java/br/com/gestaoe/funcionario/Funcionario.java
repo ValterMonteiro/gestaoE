@@ -149,7 +149,7 @@ public class Funcionario implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(bairro, cep, cidade, cpf, email, id, numero, nome, rua, telefone, uf);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -161,12 +161,7 @@ public class Funcionario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Funcionario other = (Funcionario) obj;
-		return Objects.equals(bairro, other.bairro) && Objects.equals(cep, other.cep)
-				&& Objects.equals(cidade, other.cidade) && Objects.equals(cpf, other.cpf)
-				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
-				&& Objects.equals(numero, other.numero) && Objects.equals(nome, other.nome)
-				&& Objects.equals(rua, other.rua) && Objects.equals(telefone, other.telefone)
-				&& Objects.equals(uf, other.uf);
+		return  Objects.equals(id, other.id);
 	}
 
 
