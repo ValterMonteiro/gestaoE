@@ -55,7 +55,7 @@ public class Produto implements Serializable {
 	}
 
 
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -110,6 +110,8 @@ public class Produto implements Serializable {
 	public void setPrecoVenda(double precoVenda) {
 		this.precoVenda = precoVenda;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -128,4 +130,5 @@ public class Produto implements Serializable {
 		Produto other = (Produto) obj;
 		return Objects.equals(descricao, other.descricao) && Objects.equals(id, other.id);
 	}
+	
 }

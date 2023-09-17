@@ -4,6 +4,7 @@
  */
 package br.com.gestaoe.produto;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -82,5 +83,39 @@ public class ProdutoService {
 			throw new ResourceNotFoundException("O registro solicitado não foi localizado.");
 		}
 	}
+	
+	
+	//relatorio controle de estoque
+	public List<ControleDeEstoque> getControleDeEstoque() {
+		
+		
+		
+        // Suponha que você tenha um método personalizado no seu ProdutoRepository
+        // que execute a consulta SQL que você mencionou e retorne os resultados
+        List<Object[]> resultado = repository.customQueryForControleDeEstoque();
+
+        // Mapeie os resultados para objetos ControleDeEstoque
+        return resultado.stream().map(row -> {
+        	ControleDeEstoqueImpl controle = new ControleDeEstoqueImpl();
+            //controle.setData((LocalDate) row[0]);
+        	controle.setData(((java.sql.Date) row[0]).toLocalDate()); // Converte a data para LocalDate
+            //controle.setId((Long) row[1]);
+        	controle.setId(Long.valueOf((Integer) row[1])); // Converte Integer para Long
+            controle.setDescricao((String) row[2]);
+            //controle.setEntradaQuantidade((Long) row[3]);
+            controle.setEntradaQuantidade(Long.valueOf((Integer) row[3])); // Converte Integer para Long
+            controle.setEntradaValorUnit((Double) row[4]);
+            controle.setEntradaValorTotal((Double) row[5]);
+            //controle.setSaidaQuantidade((Long) row[6]);
+            controle.setSaidaQuantidade(Long.valueOf((Integer) row[6])); // Converte Integer para Long
+            controle.setSaidaValorUnit((Double) row[7]);
+            controle.setSaidaValorTotal((Double) row[8]);
+            //controle.setSaldoQuantidade((Long) row[9]);
+            controle.setSaldoQuantidade(Long.valueOf((Integer) row[9])); // Converte Integer para Long
+            controle.setSaldoValorUnit((Double) row[10]);
+            controle.setSaldoValorTotal((Double) row[11]);
+            return controle;
+        }).collect(Collectors.toList());
+    }
      
 }

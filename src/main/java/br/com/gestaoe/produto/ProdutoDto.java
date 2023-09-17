@@ -51,6 +51,8 @@ public class ProdutoDto implements Serializable {
 		this.precoCusto = entity.getPrecoCusto();
 		this.precoVenda = entity.getPrecoVenda();
 	}
+	
+	
 
 	public Long getId() {
 		return id;
@@ -118,5 +120,6 @@ public class ProdutoDto implements Serializable {
 	public void setPrecoVenda(double precoVenda) {
 		this.precoVenda = precoVenda;
 	}
+    
     
 }
