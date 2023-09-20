@@ -14,7 +14,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 		
-	
+	/*
+	Passos para criar a consulta sql
+	- Criar o método (query) na repository;
+	- Criar um DTO ou uma interface (projection) para a consulta personalizada
+	- Atualizar ou criar a classe service
+	- Criar o mapeamento para retornar a consulta na classe resource
+	*/
 	// Método personalizado para executar a consulta SQL desejada
     @Query(value ="SELECT\r\n"
     		+ "    	    tb_produto.data AS data,\r\n"
@@ -37,5 +43,8 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
     		+ "    	    tb_item_produto_venda ON tb_produto.id = tb_item_produto_venda.id_produto_fk;"
     		
     , nativeQuery = true)
-    List<Object[]> customQueryForControleDeEstoque();
+    List<ControleDeEstoqueDTO> findByControleDeEstoqueSQL(
+    		LocalDate data, Long id,String descricao,Long entradaQuantidade, Double entradaValorUnit, 
+			Double entradaValorTotal, Long saidaQuantidade, Double saidaValorUnit, Double saidaValorTotal,
+			Long saldoQuantidade, Double saldoValorUnit, Double saldoValorTotal);
 }

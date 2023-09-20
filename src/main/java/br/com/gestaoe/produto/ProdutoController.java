@@ -5,6 +5,7 @@
 package br.com.gestaoe.produto;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,10 +67,24 @@ public class ProdutoController {
 	}
     
     //relatorio controle de estoque
+	/*
 	@GetMapping(value="/relatorio")
 	public String listarControleDeEstoque(Model model) {
         List<ControleDeEstoque> controleDeEstoque = service.getControleDeEstoque();
         model.addAttribute("controleDeEstoque", controleDeEstoque);
         return "listaControleDeEstoque";
     }
+	*/
+	
+	@GetMapping(value="/controleDeEstoque")
+	public ResponseEntity<List<ControleDeEstoqueDTO>> findByControleDeEstoqueSQL(@PathVariable 
+			LocalDate data, Long id,String descricao,Long entradaQuantidade, Double entradaValorUnit, 
+			Double entradaValorTotal, Long saidaQuantidade, Double saidaValorUnit, Double saidaValorTotal,
+			Long saldoQuantidade, Double saldoValorUnit, Double saldoValorTotal){
+		List<ControleDeEstoqueDTO> lista = service.findByControleDeEstoqueSQL(
+				data, id, descricao, entradaQuantidade, entradaValorUnit,
+				entradaValorTotal, saidaQuantidade, saidaValorUnit, saidaValorTotal,
+				saldoQuantidade, saldoValorUnit, saldoValorTotal);
+		return ResponseEntity.ok().body(lista);
+	}
 }

@@ -86,6 +86,8 @@ public class ProdutoService {
 	
 	
 	//relatorio controle de estoque
+	/*
+	@Transactional(readOnly = true)
 	public List<ControleDeEstoque> getControleDeEstoque() {
 		
 		
@@ -117,5 +119,39 @@ public class ProdutoService {
             return controle;
         }).collect(Collectors.toList());
     }
+    */
+	
+	@Transactional(readOnly = true)
+	public List<ControleDeEstoqueDTO> findByControleDeEstoqueSQL(
+			LocalDate data, Long id,String descricao,Long entradaQuantidade, Double entradaValorUnit, 
+			Double entradaValorTotal, Long saidaQuantidade, Double saidaValorUnit, Double saidaValorTotal,
+			Long saldoQuantidade, Double saldoValorUnit, Double saldoValorTotal){
+		
+		List<ControleDeEstoqueDTO> lista = repository.findByControleDeEstoqueSQL(data, id, descricao, entradaQuantidade, 
+				entradaValorUnit, entradaValorTotal, saidaQuantidade, saidaValorUnit, saidaValorTotal, saldoQuantidade, 
+				saldoValorUnit, saldoValorTotal);
+		
+		return lista.stream().map(row -> {
+        	ControleDeEstoqueDTO controle = new ControleDeEstoqueDTO();
+            controle.setData(row.getData());
+        	//controle.setData(((java.sql.Date) row[0]).toLocalDate()); // Converte a data para LocalDate
+            controle.setId(row.getId());
+        	//controle.setId(Long.valueOf((Integer) row[1])); // Converte Integer para Long
+            controle.setDescricao(row.getDescricao());
+            controle.setEntradaQuantidade(row.getEntradaQuantidade());
+            //controle.setEntradaQuantidade(Long.valueOf((Integer) row[3])); // Converte Integer para Long
+            controle.setEntradaValorUnit(row.getEntradaValorTotal());
+            controle.setEntradaValorTotal(row.getEntradaValorTotal());
+            controle.setSaidaQuantidade(row.getSaidaQuantidade());
+            //controle.setSaidaQuantidade(Long.valueOf((Integer) row[6])); // Converte Integer para Long
+            controle.setSaidaValorUnit(row.getSaidaValorUnit());
+            controle.setSaidaValorTotal(row.getSaidaValorTotal());
+            controle.setSaldoQuantidade(row.getSaldoQuantidade());
+            //controle.setSaldoQuantidade(Long.valueOf((Integer) row[9])); // Converte Integer para Long
+            controle.setSaldoValorUnit(row.getSaldoValorUnit());
+            controle.setSaldoValorTotal(row.getSaldoValorTotal());
+            return controle;
+        }).collect(Collectors.toList());
+	}
      
 }
