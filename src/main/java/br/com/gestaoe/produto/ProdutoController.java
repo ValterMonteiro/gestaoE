@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,25 +65,14 @@ public class ProdutoController {
 		return ResponseEntity.noContent().build();
 	}
     
-    //relatorio controle de estoque
-	/*
-	@GetMapping(value="/relatorio")
-	public String listarControleDeEstoque(Model model) {
-        List<ControleDeEstoque> controleDeEstoque = service.getControleDeEstoque();
-        model.addAttribute("controleDeEstoque", controleDeEstoque);
-        return "listaControleDeEstoque";
-    }
-	*/
+    //relatorio controle de estoque	
 	
-	@GetMapping(value="/controleDeEstoque")
-	public ResponseEntity<List<ControleDeEstoqueDTO>> findByControleDeEstoqueSQL(@PathVariable 
-			LocalDate data, Long id,String descricao,Long entradaQuantidade, Double entradaValorUnit, 
-			Double entradaValorTotal, Long saidaQuantidade, Double saidaValorUnit, Double saidaValorTotal,
-			Long saldoQuantidade, Double saldoValorUnit, Double saldoValorTotal){
-		List<ControleDeEstoqueDTO> lista = service.findByControleDeEstoqueSQL(
-				data, id, descricao, entradaQuantidade, entradaValorUnit,
-				entradaValorTotal, saidaQuantidade, saidaValorUnit, saidaValorTotal,
-				saldoQuantidade, saldoValorUnit, saldoValorTotal);
+    @GetMapping(value = "/descricaosql/{descricao}")
+	public ResponseEntity<List<ControleDeEstoqueDTO>> findByProdutoDescricaoSQL(@PathVariable String descricao){
+		List<ControleDeEstoqueDTO> lista = service.findByProdutoDescricaoSQL(descricao);
 		return ResponseEntity.ok().body(lista);
 	}
+	
+	
+
 }

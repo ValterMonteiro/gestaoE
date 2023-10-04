@@ -42,10 +42,7 @@ public class ProdutoService {
 		Produto entity = new Produto();
 		entity.setDescricao(dto.getDescricao());
 		entity.setData(dto.getData());
-		entity.setSaidaQuantidade(dto.getSaidaQuantidade());
-		entity.setEntradaQuantidade(dto.getEntradaQuantidade());
-		entity.setPrecoCusto(dto.getPrecoCusto());
-		entity.setPrecoVenda(dto.getPrecoVenda());
+		
 		
 		entity = repository.save(entity);
 
@@ -60,10 +57,7 @@ public class ProdutoService {
 			
 			entity.setDescricao(dto.getDescricao());
 			entity.setData(dto.getData());
-			entity.setSaidaQuantidade(dto.getSaidaQuantidade());
-			entity.setEntradaQuantidade(dto.getEntradaQuantidade());
-			entity.setPrecoCusto(dto.getPrecoCusto());
-			entity.setPrecoVenda(dto.getPrecoVenda());
+			
 			
 			entity = repository.save(entity);
 	
@@ -83,75 +77,15 @@ public class ProdutoService {
 			throw new ResourceNotFoundException("O registro solicitado não foi localizado.");
 		}
 	}
+
 	
 	
 	//relatorio controle de estoque
-	/*
-	@Transactional(readOnly = true)
-	public List<ControleDeEstoque> getControleDeEstoque() {
-		
-		
-		
-        // Suponha que você tenha um método personalizado no seu ProdutoRepository
-        // que execute a consulta SQL que você mencionou e retorne os resultados
-        List<Object[]> resultado = repository.customQueryForControleDeEstoque();
-
-        // Mapeie os resultados para objetos ControleDeEstoque
-        return resultado.stream().map(row -> {
-        	ControleDeEstoqueImpl controle = new ControleDeEstoqueImpl();
-            //controle.setData((LocalDate) row[0]);
-        	controle.setData(((java.sql.Date) row[0]).toLocalDate()); // Converte a data para LocalDate
-            //controle.setId((Long) row[1]);
-        	controle.setId(Long.valueOf((Integer) row[1])); // Converte Integer para Long
-            controle.setDescricao((String) row[2]);
-            //controle.setEntradaQuantidade((Long) row[3]);
-            controle.setEntradaQuantidade(Long.valueOf((Integer) row[3])); // Converte Integer para Long
-            controle.setEntradaValorUnit((Double) row[4]);
-            controle.setEntradaValorTotal((Double) row[5]);
-            //controle.setSaidaQuantidade((Long) row[6]);
-            controle.setSaidaQuantidade(Long.valueOf((Integer) row[6])); // Converte Integer para Long
-            controle.setSaidaValorUnit((Double) row[7]);
-            controle.setSaidaValorTotal((Double) row[8]);
-            //controle.setSaldoQuantidade((Long) row[9]);
-            controle.setSaldoQuantidade(Long.valueOf((Integer) row[9])); // Converte Integer para Long
-            controle.setSaldoValorUnit((Double) row[10]);
-            controle.setSaldoValorTotal((Double) row[11]);
-            return controle;
-        }).collect(Collectors.toList());
-    }
-    */
 	
 	@Transactional(readOnly = true)
-	public List<ControleDeEstoqueDTO> findByControleDeEstoqueSQL(
-			LocalDate data, Long id,String descricao,Long entradaQuantidade, Double entradaValorUnit, 
-			Double entradaValorTotal, Long saidaQuantidade, Double saidaValorUnit, Double saidaValorTotal,
-			Long saldoQuantidade, Double saldoValorUnit, Double saldoValorTotal){
-		
-		List<ControleDeEstoqueDTO> lista = repository.findByControleDeEstoqueSQL(data, id, descricao, entradaQuantidade, 
-				entradaValorUnit, entradaValorTotal, saidaQuantidade, saidaValorUnit, saidaValorTotal, saldoQuantidade, 
-				saldoValorUnit, saldoValorTotal);
-		
-		return lista.stream().map(row -> {
-        	ControleDeEstoqueDTO controle = new ControleDeEstoqueDTO();
-            controle.setData(row.getData());
-        	//controle.setData(((java.sql.Date) row[0]).toLocalDate()); // Converte a data para LocalDate
-            controle.setId(row.getId());
-        	//controle.setId(Long.valueOf((Integer) row[1])); // Converte Integer para Long
-            controle.setDescricao(row.getDescricao());
-            controle.setEntradaQuantidade(row.getEntradaQuantidade());
-            //controle.setEntradaQuantidade(Long.valueOf((Integer) row[3])); // Converte Integer para Long
-            controle.setEntradaValorUnit(row.getEntradaValorTotal());
-            controle.setEntradaValorTotal(row.getEntradaValorTotal());
-            controle.setSaidaQuantidade(row.getSaidaQuantidade());
-            //controle.setSaidaQuantidade(Long.valueOf((Integer) row[6])); // Converte Integer para Long
-            controle.setSaidaValorUnit(row.getSaidaValorUnit());
-            controle.setSaidaValorTotal(row.getSaidaValorTotal());
-            controle.setSaldoQuantidade(row.getSaldoQuantidade());
-            //controle.setSaldoQuantidade(Long.valueOf((Integer) row[9])); // Converte Integer para Long
-            controle.setSaldoValorUnit(row.getSaldoValorUnit());
-            controle.setSaldoValorTotal(row.getSaldoValorTotal());
-            return controle;
-        }).collect(Collectors.toList());
+	public List<ControleDeEstoqueDTO> findByProdutoDescricaoSQL(String descricao) {
+		return repository.findByProdutoDescricaoSQL(descricao);
 	}
+	
      
 }

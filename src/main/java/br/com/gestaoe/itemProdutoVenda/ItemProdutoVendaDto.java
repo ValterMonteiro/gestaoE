@@ -37,23 +37,25 @@ public class ItemProdutoVendaDto  implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Produto produto;
-    private int quantidade;
-	
+	private int saidaQuantidade;
+	private double precoVenda;	
 	
 	public ItemProdutoVendaDto(){}
 
 
-	public ItemProdutoVendaDto(Long id, Produto produto, int quantidade) {
+	public ItemProdutoVendaDto(Long id, Produto produto, int saidaQuantidade, double precoVenda) {
 		this.id = id;
 		this.produto = produto;
-		this.quantidade = quantidade;
+		this.saidaQuantidade = saidaQuantidade;
+		this.precoVenda = precoVenda;
 	}
 
 
 	public ItemProdutoVendaDto(ItemProdutoVenda entity) {
 		this.id = entity.getId();
 		this.produto = entity.getProduto();
-		this.quantidade = entity.getQuantidade();
+		this.saidaQuantidade = entity.getSaidaQuantidade();
+		this.precoVenda = entity.getPrecoVenda();
 	}
 
 
@@ -77,15 +79,24 @@ public class ItemProdutoVendaDto  implements Serializable {
 	}
 
 
-	public int getQuantidade() {
-		return quantidade;
+	public int getSaidaQuantidade() {
+		return saidaQuantidade;
 	}
 
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	public void setSaidaQuantidade(int saidaQuantidade) {
+		this.saidaQuantidade = saidaQuantidade;
 	}
 
-	
+
+	public double getPrecoVenda() {
+		return precoVenda;
+	}
+
+
+	public void setPrecoVenda(double precoVenda) {
+		this.precoVenda = precoVenda;
+	}
+
     
 }

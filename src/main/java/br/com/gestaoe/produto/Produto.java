@@ -7,12 +7,20 @@ package br.com.gestaoe.produto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.com.gestaoe.itemProdutoCompra.ItemProdutoCompra;
+import br.com.gestaoe.itemProdutoVenda.ItemProdutoVenda;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -30,11 +38,14 @@ public class Produto implements Serializable {
 	private Long id;
 	private String descricao;
 	private LocalDate data;
-	private Long saidaQuantidade;
-	private Long entradaQuantidade;
-	private double precoCusto;
-	private double precoVenda;
 	
+	
+	@OneToMany(mappedBy = "entradaQuantidade", fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<ItemProdutoCompra> itemProdutoCompra = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "saidaQuantidade")
+	private List<ItemProdutoVenda> itemProdutoVenda = new ArrayList<>();
 	
 	public Produto() {
 		// TODO Auto-generated constructor stub
@@ -42,16 +53,11 @@ public class Produto implements Serializable {
 
 	
 
-	public Produto(Long id, String descricao, LocalDate data, Long saidaQuantidade, Long entradaQuantidade,
-			double precoCusto, double precoVenda) {
+	public Produto(Long id, String descricao, LocalDate data,
+			List<ItemProdutoCompra> itemProdutoCompra, List<ItemProdutoVenda> itemProdutoVenda ) {
 		this.id = id;
 		this.descricao = descricao;
-		this.data = data;
-		this.saidaQuantidade = saidaQuantidade;
-		this.entradaQuantidade = entradaQuantidade;
-		this.precoCusto = precoCusto;
-		this.precoVenda = precoVenda;
-		
+		this.data = data;		
 	}
 
 
@@ -78,44 +84,12 @@ public class Produto implements Serializable {
 	
 	public void setData(LocalDate data) {
 		this.data = data;
-	}
-	
-	public Long getSaidaQuantidade() {
-		return saidaQuantidade;
-	}
-	
-	public void setSaidaQuantidade(Long saidaQuantidade) {
-		this.saidaQuantidade = saidaQuantidade;
-	}
-	public Long getEntradaQuantidade() {
-		return entradaQuantidade;
-	}
-	
-	public void setEntradaQuantidade(Long entradaQuantidade) {
-		this.entradaQuantidade = entradaQuantidade;
-	}
-
-	public double getPrecoCusto() {
-		return precoCusto;
-	}
-
-	public void setPrecoCusto(double precoCusto) {
-		this.precoCusto = precoCusto;
-	}
-
-	public double getPrecoVenda() {
-		return precoVenda;
-	}
-
-	public void setPrecoVenda(double precoVenda) {
-		this.precoVenda = precoVenda;
-	}
-	
+	}	
 	
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descricao, id);
+		return Objects.hash(id);
 	}
 	
 
@@ -128,7 +102,7 @@ public class Produto implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Produto other = (Produto) obj;
-		return Objects.equals(descricao, other.descricao) && Objects.equals(id, other.id);
+		return Objects.equals(id, other.id);
 	}
 	
 }

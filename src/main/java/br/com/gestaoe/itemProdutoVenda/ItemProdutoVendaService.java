@@ -50,7 +50,8 @@ public class ItemProdutoVendaService {
 		ItemProdutoVenda entity = new ItemProdutoVenda();
 		entity.setId(dto.getId());
 		entity.setProduto(dto.getProduto());
-		entity.setQuantidade(dto.getQuantidade());
+		entity.setSaidaQuantidade(dto.getSaidaQuantidade());
+		entity.setPrecoVenda(dto.getPrecoVenda());
 		
 		entity = repository.save(entity);
 		
@@ -64,7 +65,8 @@ public class ItemProdutoVendaService {
 			ItemProdutoVenda entity = repository.getReferenceById(id);
 			entity.setId(dto.getId());
 			entity.setProduto(dto.getProduto());
-			entity.setQuantidade(dto.getQuantidade());
+			entity.setSaidaQuantidade(dto.getSaidaQuantidade());
+			entity.setPrecoVenda(dto.getPrecoVenda());
 			
 			entity = repository.save(entity);
 			

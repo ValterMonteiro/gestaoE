@@ -7,14 +7,14 @@ public interface ControleDeEstoque {
 	LocalDate getData();
 	Long getId();
 	String getDescricao();
-	Long getEntradaQuantidade();
-	double getEntradaValorUnit();
-	double getEntradaValorTotal();
+	int getEntradaQuantidade();
+	Double getEntradaValorUnit();
+	Double getEntradaValorTotal();
 	Long getSaidaQuantidade();
-	double getSaidaValorUnit();
-	double getSaidaValorTotal();
+	Double getSaidaValorUnit();
+	Double getSaidaValorTotal();
 	Long getSaldoQuantidade();
-	double getSaldoValorUnit();
-	double getSaldoValorTotal();
+	Double getSaldoValorUnit();
+	Double getSaldoValorTotal();
 	
 }

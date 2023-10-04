@@ -19,24 +19,17 @@ public class ProdutoDto implements Serializable {
 	private Long id;
 	private String descricao;
 	private LocalDate data;
-	private Long saidaQuantidade;
-	private Long entradaQuantidade;
-	private double precoCusto;
-	private double precoVenda;
+	
 	
 	
 	public ProdutoDto(){}
 	
 
-	public ProdutoDto(Long id, String descricao, LocalDate data, Long saidaQuantidade, Long entradaQuantidade,
-			double precoCusto, double precoVenda) {
+	public ProdutoDto(Long id, String descricao, LocalDate data) {
 		this.id = id;
 		this.descricao = descricao;
 		this.data = data;
-		this.saidaQuantidade = saidaQuantidade;
-		this.entradaQuantidade = entradaQuantidade;
-		this.precoCusto = precoCusto;
-		this.precoVenda = precoVenda;
+		
 		
 	}
 
@@ -46,10 +39,7 @@ public class ProdutoDto implements Serializable {
 		this.id = entity.getId();
 		this.descricao = entity.getDescricao();
 		this.data = entity.getData();
-		this.saidaQuantidade = entity.getSaidaQuantidade();
-		this.entradaQuantidade = entity.getEntradaQuantidade();
-		this.precoCusto = entity.getPrecoCusto();
-		this.precoVenda = entity.getPrecoVenda();
+		
 	}
 	
 	
@@ -80,46 +70,5 @@ public class ProdutoDto implements Serializable {
 		this.data = data;
 	}
 
-	public Long getSaidaQuantidade() {
-		return saidaQuantidade;
-	}
-	
-	
-	
-	public void setSaidaQuantidade(Long saidaQuantidade) {
-		this.saidaQuantidade = saidaQuantidade;
-	}
-	public Long getEntradaQuantidade() {
-		return entradaQuantidade;
-	}
-	
-	
-	
-	public void setEntradaQuantidade(Long entradaQuantidade) {
-		this.entradaQuantidade = entradaQuantidade;
-	}
-
-	public double getPrecoCusto() {
-		return precoCusto;
-	}
-
-
-
-	public void setPrecoCusto(double precoCusto) {
-		this.precoCusto = precoCusto;
-	}
-
-
-
-	public double getPrecoVenda() {
-		return precoVenda;
-	}
-
-
-
-	public void setPrecoVenda(double precoVenda) {
-		this.precoVenda = precoVenda;
-	}
-    
     
 }

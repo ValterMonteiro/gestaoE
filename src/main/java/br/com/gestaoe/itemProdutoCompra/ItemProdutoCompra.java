@@ -38,16 +38,18 @@ public class ItemProdutoCompra{
 	@ManyToOne
 	@JoinColumn(name = "id_produto_fk")
 	private Produto produto;
-	private int quantidade;
+	private int entradaQuantidade;
+	private double precoCusto;
     
     public ItemProdutoCompra() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemProdutoCompra(Long id, Produto produto, int quantidade) {
+	public ItemProdutoCompra(Long id, Produto produto, int entradaQuantidade, double precoCusto) {
 		this.id = id;
 		this.produto = produto;
-		this.quantidade = quantidade;
+		this.entradaQuantidade = entradaQuantidade;
+		this.precoCusto = precoCusto;
 	}
 
 	public Long getId() {
@@ -66,17 +68,20 @@ public class ItemProdutoCompra{
 		this.produto = produto;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
+	public int getEntradaQuantidade() {
+		return entradaQuantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	public void setEntradaQuantidade(int entradaQuantidade) {
+		this.entradaQuantidade = entradaQuantidade;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, produto, quantidade);
+	public double getPrecoCusto() {
+		return precoCusto;
+	}
+
+	public void setPrecoCusto(double precoCusto) {
+		this.precoCusto = precoCusto;
 	}
 
 	@Override
@@ -88,7 +93,7 @@ public class ItemProdutoCompra{
 		if (getClass() != obj.getClass())
 			return false;
 		ItemProdutoCompra other = (ItemProdutoCompra) obj;
-		return Objects.equals(id, other.id) && Objects.equals(produto, other.produto) && quantidade == other.quantidade;
+		return Objects.equals(id, other.id);
 	}
 
 	
