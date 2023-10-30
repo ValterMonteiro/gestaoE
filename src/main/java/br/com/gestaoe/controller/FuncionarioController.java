@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.funcionario;
+package br.com.gestaoe.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.gestaoe.dto.FuncionarioDTO;
+import br.com.gestaoe.dto.UserInsertDTO;
+import br.com.gestaoe.service.FuncionarioService;
+
 @RestController
 @RequestMapping("/api/funcionarios")
 public class FuncionarioController {
@@ -27,33 +31,33 @@ public class FuncionarioController {
     private FuncionarioService service;
     
     @GetMapping
-    public ResponseEntity<List<FuncionarioDto>> findAll(){
-    	List<FuncionarioDto> list = service.findAll();
+    public ResponseEntity<List<FuncionarioDTO>> findAll(){
+    	List<FuncionarioDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
     }
     
     
     @GetMapping(value = "/{id}")
-	public ResponseEntity<FuncionarioDto> findById(@PathVariable Long id){
-		FuncionarioDto dto = service.findById(id);
+	public ResponseEntity<FuncionarioDTO> findById(@PathVariable Long id){
+		FuncionarioDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
 	
 	@PostMapping
-	public ResponseEntity<FuncionarioDto> insert(@RequestBody FuncionarioDto Dto){
-		Dto = service.insert(Dto);
+	public ResponseEntity<FuncionarioDTO> insert(@RequestBody FuncionarioDTO dto){
+		FuncionarioDTO newDto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder
 					.fromCurrentRequest()
 					.path("/{id}")
-					.buildAndExpand(Dto.getId())
+					.buildAndExpand(dto.getId())
 					.toUri();
-		return ResponseEntity.created(uri).body(null);
+		return ResponseEntity.created(uri).body(newDto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<FuncionarioDto> update(
+	public ResponseEntity<FuncionarioDTO> update(
 			@PathVariable Long id,
-			@RequestBody FuncionarioDto Dto){
+			@RequestBody FuncionarioDTO Dto){
 		Dto = service.update(id, Dto);
 		return ResponseEntity.ok().body(Dto);
 	}

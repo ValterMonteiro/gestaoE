@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.produto;
+package br.com.gestaoe.controller;
 
 import java.net.URI;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import br.com.gestaoe.dto.ControleDeEstoqueDTO;
+import br.com.gestaoe.dto.ProdutoDto;
+import br.com.gestaoe.service.ProdutoService;
 
 @RestController
 @RequestMapping("/api/produtos")
@@ -67,9 +70,9 @@ public class ProdutoController {
     
     //relatorio controle de estoque	
 	
-    @GetMapping(value = "/descricaosql/{descricao}")
-	public ResponseEntity<List<ControleDeEstoqueDTO>> findByProdutoDescricaoSQL(@PathVariable String descricao){
-		List<ControleDeEstoqueDTO> lista = service.findByProdutoDescricaoSQL(descricao);
+    @GetMapping(value = "/controleDeEstoque/{id}")
+	public ResponseEntity<List<ControleDeEstoqueDTO>> findByControleDeEstoqueSQL(@PathVariable Long id){
+		List<ControleDeEstoqueDTO> lista = service.findByControleDeEstoqueSQL(id);
 		return ResponseEntity.ok().body(lista);
 	}
 	
