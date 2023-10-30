@@ -1,4 +1,4 @@
-package br.com.gestaoe.produto;
+package br.com.gestaoe.controller.exceptions;
 
 import java.time.Instant;
 
@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import br.com.gestaoe.service.exceptions.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 
 @ControllerAdvice

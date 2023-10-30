@@ -1,4 +1,4 @@
-package br.com.gestaoe.cliente;
+package br.com.gestaoe.service.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

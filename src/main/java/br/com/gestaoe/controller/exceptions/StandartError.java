@@ -1,4 +1,4 @@
-package br.com.gestaoe.fornecedor;
+package br.com.gestaoe.controller.exceptions;
 
 import java.io.Serializable;
 import java.time.Instant;
