@@ -25,6 +25,14 @@ INSERT INTO tb_cliente (razao_social, cnpj, rua, numero, bairro, cidade, cep, uf
 INSERT INTO tb_funcionario (nome, cpf, rua, numero, bairro, cidade, cep, uf, telefone, email) VALUES ('FuncionarioA', '000.000.000-01', 'Rua A', 123, 'Centro', 'Navirai', 79950000, 'MS', 67999999901, 'funcionario.a@email.com');
 INSERT INTO tb_funcionario (nome, cpf, rua, numero, bairro, cidade, cep, uf, telefone, email) VALUES ('FuncionarioB', '000.000.000-02', 'Rua B', 123, 'Centro', 'Navirai', 79950000, 'MS', 67999999902, 'funcionario.b@email.com');
 
+INSERT INTO TB_USERS(id, email, senha) VALUES (1, 'email@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+
+INSERT INTO TB_ROLE (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO TB_ROLE (authority) VALUES ('ROLE_ADMIN');
+
+INSERT INTO TB_FUNCIONARIO_ROLE (user_id, role_id) VALUES (1, 2);
+
+
 INSERT INTO tb_compra (id_funcionario_fk, id_fornecedor_fk, nfe_compra, data) VALUES (1, 1, 123, '2023-01-01');
 INSERT INTO tb_compra (id_funcionario_fk, id_fornecedor_fk, nfe_compra, data) VALUES (1, 1, 124, '2023-01-01');
 
