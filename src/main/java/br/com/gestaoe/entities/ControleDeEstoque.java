@@ -1,4 +1,4 @@
-package br.com.gestaoe.produto;
+package br.com.gestaoe.entities;
 
 import java.time.LocalDate;
 

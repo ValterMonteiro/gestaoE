@@ -2,17 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.funcionario;
+package br.com.gestaoe.entities;
 
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -37,6 +43,7 @@ public class Funcionario implements Serializable {
 	private Long cep;
 	private String uf;
 	private Long telefone;
+	@Column(unique = true)
 	private String email;
 	
 	
@@ -145,7 +152,7 @@ public class Funcionario implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}	
 
 	@Override
 	public int hashCode() {

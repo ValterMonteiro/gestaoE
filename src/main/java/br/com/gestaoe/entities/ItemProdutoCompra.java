@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.itemProdutoCompra;
+package br.com.gestaoe.entities;
 
 
 import java.util.Objects;
@@ -10,7 +10,6 @@ import java.util.Objects;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import br.com.gestaoe.produto.Produto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,6 +37,7 @@ public class ItemProdutoCompra{
 	@ManyToOne
 	@JoinColumn(name = "id_produto_fk")
 	private Produto produto;
+	
 	private int entradaQuantidade;
 	private double precoCusto;
     
@@ -82,6 +82,11 @@ public class ItemProdutoCompra{
 
 	public void setPrecoCusto(double precoCusto) {
 		this.precoCusto = precoCusto;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 
 	@Override

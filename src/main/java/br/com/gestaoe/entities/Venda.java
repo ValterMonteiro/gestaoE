@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.venda;
+package br.com.gestaoe.entities;
 
 
 import java.io.Serializable;
@@ -11,8 +11,6 @@ import java.util.Objects;
 
 import javax.xml.crypto.Data;
 
-import br.com.gestaoe.cliente.Cliente;
-import br.com.gestaoe.funcionario.Funcionario;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

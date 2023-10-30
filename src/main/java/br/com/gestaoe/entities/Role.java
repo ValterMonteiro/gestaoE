@@ -1,12 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.gestaoe.entities;
 
-
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -15,29 +9,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/**
- *
- * 
- */
 @Entity
-@Table(name = "tb_gerente")
-public class Gerente implements Serializable {
+@Table(name = "tb_role")
+public class Role implements Serializable {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String authority;
 	
-	
-	public Gerente() {
-		// TODO Auto-generated constructor stub
+	public Role() {
 	}
 
-	public Gerente(Long id, String razaoSocial, String cpf, String rua, Integer numero, String bairro,
-			String cidade, Long cep, String uf, Long telefone, String email) {
-		this.id = id;
+	public Role(Long id, String authority) {
 		
+		this.id = id;
+		this.authority = authority;
 	}
 
 	public Long getId() {
@@ -48,7 +40,13 @@ public class Gerente implements Serializable {
 		this.id = id;
 	}
 
-	
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
 
 	@Override
 	public int hashCode() {
@@ -63,10 +61,10 @@ public class Gerente implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Gerente other = (Gerente) obj;
+		Role other = (Role) obj;
 		return Objects.equals(id, other.id);
-				
 	}
-
+	
+	
 
 }
