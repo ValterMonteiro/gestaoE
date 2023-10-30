@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.itemProdutoCompra;
+package br.com.gestaoe.service;
 
 
 import java.util.List;
@@ -14,8 +14,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.gestaoe.produto.Produto;
-import br.com.gestaoe.produto.ResourceNotFoundException;
+import br.com.gestaoe.dto.ItemProdutoCompraDto;
+import br.com.gestaoe.entities.ItemProdutoCompra;
+import br.com.gestaoe.repositories.ItemProdutoCompraRepository;
+import br.com.gestaoe.service.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 
 
@@ -89,4 +91,5 @@ public class ItemProdutoCompraService {
 		
 	}
 	
+
 }

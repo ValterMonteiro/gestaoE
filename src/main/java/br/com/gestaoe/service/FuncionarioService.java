@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.funcionario;
+package br.com.gestaoe.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,69 +13,59 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.gestaoe.dto.FuncionarioDTO;
+import br.com.gestaoe.entities.Funcionario;
+import br.com.gestaoe.repositories.FuncionarioRepository;
+import br.com.gestaoe.service.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class FuncionarioService {
-
+	
     @Autowired
     private FuncionarioRepository repository;
     
+    
+
+    
     @Transactional(readOnly = true)
-	public List<FuncionarioDto> findAll(){
+	public List<FuncionarioDTO> findAll(){
 		List<Funcionario> lista = repository.findAll();
-		return lista.stream().map(x -> new FuncionarioDto(x)).collect(Collectors.toList());
+		return lista.stream().map(x -> new FuncionarioDTO(x)).collect(Collectors.toList());
 	}
     
     
     @Transactional(readOnly = true)
-	public FuncionarioDto findById(Long id) {
+	public FuncionarioDTO findById(Long id) {
 		Optional<Funcionario> obj = repository.findById(id);
 		
 		Funcionario entity = obj.orElseThrow(() -> new ResourceNotFoundException("O registro solicitado não foi localizado."));
-		return new FuncionarioDto(entity);		
+		return new FuncionarioDTO(entity);		
 	}
 
 	@Transactional
-	public FuncionarioDto insert(FuncionarioDto dto) {
+	public FuncionarioDTO insert(FuncionarioDTO dto) {
 		Funcionario entity = new Funcionario();
+		copiarDTOParaEntidade(dto, entity);
 		
-		entity.setNome(dto.getNome());
-		entity.setCpf(dto.getCpf());
-		entity.setRua(dto.getRua());
-		entity.setNumero(dto.getNumero()); 
-		entity.setBairro(dto.getBairro());
-		entity.setCidade(dto.getCidade()); 
-		entity.setCep(dto.getCep()); 
-		entity.setUf(dto.getUf());
-		entity.setTelefone(dto.getTelefone()); 
-		entity.setEmail(dto.getEmail());
+		//entity.setSenha(passwordEncoder.encode(dto.getSenha()));		
 		
 		entity = repository.save(entity);
 
-		return new FuncionarioDto(entity);
+		return new FuncionarioDTO(entity);
 	}
 
 	@Transactional
-	public FuncionarioDto update(Long id, FuncionarioDto dto) {
+	public FuncionarioDTO update(Long id, FuncionarioDTO dto) {
 		
 		try {
 			Funcionario entity = repository.getReferenceById(id);
 			
-			entity.setNome(dto.getNome());
-			entity.setCpf(dto.getCpf());
-			entity.setRua(dto.getRua());
-			entity.setNumero(dto.getNumero()); 
-			entity.setBairro(dto.getBairro());
-			entity.setCidade(dto.getCidade()); 
-			entity.setCep(dto.getCep()); 
-			entity.setUf(dto.getUf());
-			entity.setTelefone(dto.getTelefone()); 
-			entity.setEmail(dto.getEmail());
+			copiarDTOParaEntidade(dto, entity);
 			
 			entity = repository.save(entity);
 	
-			return new FuncionarioDto(entity);
+			return new FuncionarioDTO(entity);
 		} catch(EntityNotFoundException e) {
 			throw new ResourceNotFoundException(
 					"O recurso com o ID "+id+" não foi localizado");
@@ -92,4 +82,22 @@ public class FuncionarioService {
 		}
 	}
      
+	private void copiarDTOParaEntidade(FuncionarioDTO dto, Funcionario entity) {	
+		entity.setNome(dto.getNome());
+		entity.setCpf(dto.getCpf());
+		entity.setRua(dto.getRua());
+		entity.setNumero(dto.getNumero()); 
+		entity.setBairro(dto.getBairro());
+		entity.setCidade(dto.getCidade()); 
+		entity.setCep(dto.getCep()); 
+		entity.setUf(dto.getUf());
+		entity.setTelefone(dto.getTelefone()); 
+		entity.setEmail(dto.getEmail());
+		
+		/*entity.getRoles().clear();
+		for(RoleDTO roleDTO : dto.getRoles()) {
+			Role role = roleRepository.getReferenceById(roleDTO.getId());
+			entity.getRoles().add(role);
+		}*/
+	}
 }

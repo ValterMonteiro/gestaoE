@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.produto;
+package br.com.gestaoe.service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -14,6 +13,11 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.gestaoe.dto.ControleDeEstoqueDTO;
+import br.com.gestaoe.dto.ProdutoDto;
+import br.com.gestaoe.entities.Produto;
+import br.com.gestaoe.repositories.ProdutoRepository;
+import br.com.gestaoe.service.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
@@ -80,11 +84,11 @@ public class ProdutoService {
 
 	
 	
-	//relatorio controle de estoque
+	//relatorio controle de estoque	
 	
 	@Transactional(readOnly = true)
-	public List<ControleDeEstoqueDTO> findByProdutoDescricaoSQL(String descricao) {
-		return repository.findByProdutoDescricaoSQL(descricao);
+	public List<ControleDeEstoqueDTO> findByControleDeEstoqueSQL(Long id) {
+		return repository.findByControleDeEstoqueSQL(id);
 	}
 	
      
