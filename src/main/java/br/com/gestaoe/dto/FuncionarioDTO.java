@@ -2,13 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.funcionario;
+package br.com.gestaoe.dto;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import br.com.gestaoe.entities.Funcionario;
 
 
 
-public class FuncionarioDto implements Serializable {
+public class FuncionarioDTO implements Serializable {
 
 	/**
 	 * 
@@ -28,10 +32,12 @@ public class FuncionarioDto implements Serializable {
 	private String email;
 	
 	
-	public FuncionarioDto(){}
 	
 	
-	public FuncionarioDto(Long id, String nome, String cpf, String rua, Integer numero, String bairro,
+	public FuncionarioDTO(){}
+	
+	
+	public FuncionarioDTO(Long id, String nome, String cpf, String rua, Integer numero, String bairro,
 			String cidade, Long cep, String uf, Long telefone, String email) {
 		
 		this.id = id;
@@ -48,7 +54,7 @@ public class FuncionarioDto implements Serializable {
 	}
 
 
-	public FuncionarioDto(Funcionario entity) {
+	public FuncionarioDTO(Funcionario entity) {
 		this.id = entity.getId();
 		this.nome = entity.getNome();
 		this.cpf = entity.getCpf();
@@ -60,6 +66,7 @@ public class FuncionarioDto implements Serializable {
 		this.uf = entity.getUf();
 		this.telefone = entity.getTelefone();
 		this.email = entity.getEmail();
+		
 	}
 
 

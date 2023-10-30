@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.gestaoe.compra;
+package br.com.gestaoe.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import br.com.gestaoe.fornecedor.Fornecedor;
-import br.com.gestaoe.funcionario.Funcionario;
+import br.com.gestaoe.entities.Compra;
+import br.com.gestaoe.entities.Fornecedor;
+import br.com.gestaoe.entities.Funcionario;
 
 
 

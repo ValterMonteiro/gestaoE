@@ -1,14 +1,17 @@
-package br.com.gestaoe.produto;
+package br.com.gestaoe.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+
+import br.com.gestaoe.entities.ControleDeEstoque;
 
 public class ControleDeEstoqueDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;	
 	
 	private Long id;
-    private String descricao;
+    //private String descricao;
+    //private int entradaQuantidade;
     
 
     
@@ -16,20 +19,21 @@ public class ControleDeEstoqueDTO implements Serializable {
 	public ControleDeEstoqueDTO() {	}
 
 
-	public ControleDeEstoqueDTO(Long id, String descricao) {
+	public ControleDeEstoqueDTO(Long id) {
 		this.id = id;
-		this.descricao = descricao;
+		//this.descricao = descricao;
+		//this.entradaQuantidade = entradaQuantidade;
 		
 	}
+	
 	
 	public ControleDeEstoqueDTO(ControleDeEstoque controleDeEstoque) {
 		id = controleDeEstoque.getId();
-		descricao = controleDeEstoque.getDescricao();
-		
+		//descricao = controleDeEstoque.getDescricao();
+		//entradaQuantidade = controleDeEstoque.getEntradaQuantidade();
 		
 	}
 
-	
 
 	public Long getId() {
 		return id;
@@ -39,16 +43,22 @@ public class ControleDeEstoqueDTO implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	
+	
+	
 
 
-	public String getDescricao() {
-		return descricao;
-	}
+	
+
+	
+
+	
+	
 
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	
 
 
 	
