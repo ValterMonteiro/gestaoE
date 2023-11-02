@@ -47,7 +47,7 @@ public class CompraService {
 		entity.setFuncionario(dto.getFuncionario());
 		entity.setFornecedor(dto.getFornecedor());
 		entity.setData(dto.getData());
-		entity.setNfeCompra(dto.getNfeCompra()); 
+		entity.setNfeCompra(dto.getNfeCompra());
 		
 		
 		entity = repository.save(entity);
@@ -64,7 +64,7 @@ public class CompraService {
 			entity.setFuncionario(dto.getFuncionario());
 			entity.setFornecedor(dto.getFornecedor());
 			entity.setData(dto.getData());
-			entity.setNfeCompra(dto.getNfeCompra()); 
+			entity.setNfeCompra(dto.getNfeCompra());
 			
 			entity = repository.save(entity);
 	

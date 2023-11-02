@@ -16,12 +16,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-/**
- *
- * @author 07041626105
- */
+
 @Entity
 @Table(name = "tb_item_produto_compra")
 public class ItemProdutoCompra{
@@ -40,16 +38,21 @@ public class ItemProdutoCompra{
 	
 	private int entradaQuantidade;
 	private double precoCusto;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_compra_fk")
+	private Compra compra;
     
     public ItemProdutoCompra() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemProdutoCompra(Long id, Produto produto, int entradaQuantidade, double precoCusto) {
+	public ItemProdutoCompra(Long id, Produto produto, int entradaQuantidade, double precoCusto, Compra compra) {
 		this.id = id;
 		this.produto = produto;
 		this.entradaQuantidade = entradaQuantidade;
 		this.precoCusto = precoCusto;
+		this.compra = compra;
 	}
 
 	public Long getId() {
@@ -84,6 +87,15 @@ public class ItemProdutoCompra{
 		this.precoCusto = precoCusto;
 	}
 	
+	
+	public Compra getCompra() {
+		return compra;
+	}
+
+	public void setCompra(Compra compra) {
+		this.compra = compra;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

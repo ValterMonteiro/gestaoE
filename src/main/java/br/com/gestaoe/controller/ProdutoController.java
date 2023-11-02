@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.gestaoe.dto.ControleDeEstoqueDTO;
+import br.com.gestaoe.dto.IControleDeEstoqueDTO;
 import br.com.gestaoe.dto.ProdutoDto;
 import br.com.gestaoe.service.ProdutoService;
 
@@ -71,8 +71,8 @@ public class ProdutoController {
     //relatorio controle de estoque	
 	
     @GetMapping(value = "/controleDeEstoque/{id}")
-	public ResponseEntity<List<ControleDeEstoqueDTO>> findByControleDeEstoqueSQL(@PathVariable Long id){
-		List<ControleDeEstoqueDTO> lista = service.findByControleDeEstoqueSQL(id);
+	public ResponseEntity<List<IControleDeEstoqueDTO>> findByControleDeEstoqueSQL(@PathVariable Long id){
+		List<IControleDeEstoqueDTO> lista = service.findByControleDeEstoqueSQL(id);
 		return ResponseEntity.ok().body(lista);
 	}
 	

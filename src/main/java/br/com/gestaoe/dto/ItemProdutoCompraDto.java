@@ -7,6 +7,7 @@ package br.com.gestaoe.dto;
 
 import java.io.Serializable;
 
+import br.com.gestaoe.entities.Compra;
 import br.com.gestaoe.entities.ItemProdutoCompra;
 import br.com.gestaoe.entities.Produto;
 import jakarta.persistence.GeneratedValue;
@@ -41,15 +42,18 @@ public class ItemProdutoCompraDto  implements Serializable {
     private int entradaQuantidade;
 	private double precoCusto;
 	
+	private Compra compra;
+	
 	
 	public ItemProdutoCompraDto(){}
 
 
-	public ItemProdutoCompraDto(Long id, Produto produto, int entradaQuantidade, double precoCusto) {
+	public ItemProdutoCompraDto(Long id, Produto produto, int entradaQuantidade, double precoCusto, Compra compra) {
 		this.id = id;
 		this.produto = produto;
 		this.entradaQuantidade = entradaQuantidade;
 		this.precoCusto = precoCusto;
+		this.compra = compra;
 	}
 
 
@@ -58,6 +62,7 @@ public class ItemProdutoCompraDto  implements Serializable {
 		this.produto = entity.getProduto();
 		this.entradaQuantidade = entity.getEntradaQuantidade();
 		this.precoCusto = entity.getPrecoCusto();
+		this.compra = entity.getCompra();
 	}
 
 
@@ -98,6 +103,16 @@ public class ItemProdutoCompraDto  implements Serializable {
 
 	public void setPrecoCusto(double precoCusto) {
 		this.precoCusto = precoCusto;
+	}
+
+
+	public Compra getCompra() {
+		return compra;
+	}
+
+
+	public void setCompra(Compra compra) {
+		this.compra = compra;
 	}
 
     

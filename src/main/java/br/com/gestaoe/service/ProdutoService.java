@@ -13,7 +13,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.gestaoe.dto.ControleDeEstoqueDTO;
+import br.com.gestaoe.dto.IControleDeEstoqueDTO;
 import br.com.gestaoe.dto.ProdutoDto;
 import br.com.gestaoe.entities.Produto;
 import br.com.gestaoe.repositories.ProdutoRepository;
@@ -87,8 +87,8 @@ public class ProdutoService {
 	//relatorio controle de estoque	
 	
 	@Transactional(readOnly = true)
-	public List<ControleDeEstoqueDTO> findByControleDeEstoqueSQL(Long id) {
-		return repository.findByControleDeEstoqueSQL(id);
+	public List<IControleDeEstoqueDTO> findByControleDeEstoqueSQL(Long id) {
+		return repository.findByControleDeEstoqueSQL(id);		
 	}
 	
      

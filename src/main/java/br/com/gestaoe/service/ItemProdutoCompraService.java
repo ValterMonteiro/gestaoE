@@ -54,6 +54,7 @@ public class ItemProdutoCompraService {
 		entity.setProduto(dto.getProduto());
 		entity.setEntradaQuantidade(dto.getEntradaQuantidade());
 		entity.setPrecoCusto(dto.getPrecoCusto());
+		entity.setCompra(dto.getCompra());
 		
 		entity = repository.save(entity);
 		
@@ -69,6 +70,7 @@ public class ItemProdutoCompraService {
 			entity.setProduto(dto.getProduto());
 			entity.setEntradaQuantidade(dto.getEntradaQuantidade());
 			entity.setPrecoCusto(dto.getPrecoCusto());
+			entity.setCompra(dto.getCompra());
 			
 			entity = repository.save(entity);
 			

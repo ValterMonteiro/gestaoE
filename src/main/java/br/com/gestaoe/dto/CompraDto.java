@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import br.com.gestaoe.entities.Compra;
 import br.com.gestaoe.entities.Fornecedor;
 import br.com.gestaoe.entities.Funcionario;
+import br.com.gestaoe.entities.ItemProdutoCompra;
 
 
 
@@ -25,15 +26,15 @@ public class CompraDto implements Serializable {
 	private Fornecedor fornecedor;
 	private Long nfeCompra;
 	private LocalDate data;
-	//private  hora;
-	//private List<item_produto> itemProduto;
+	
 	
 	
 	public CompraDto(){}
 	
 
 //
-	public CompraDto(Long id, Long nfeCompra, Funcionario funcionario, Fornecedor fornecedor, LocalDate data) {
+	public CompraDto(Long id, Long nfeCompra, Funcionario funcionario, 
+			Fornecedor fornecedor, LocalDate data) {
 		
 		this.id = id;
 		this.funcionario = funcionario;
@@ -109,6 +110,10 @@ public class CompraDto implements Serializable {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
+
+
+	
+	
 
   
 }
