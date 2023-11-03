@@ -35,8 +35,8 @@ INSERT INTO tb_item_produto_compra (id_produto_fk, entrada_quantidade, preco_cus
 INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 1, '2023-01-01');
 INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 2, '2023-01-01');
 
-INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda) VALUES (1, 1, 5.00);
-INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda) VALUES (2, 1, 5.00);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 5.00, 1);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (2, 1, 5.00, 1);
 
 //instrução para a tabela de contro de estoque
 SELECT

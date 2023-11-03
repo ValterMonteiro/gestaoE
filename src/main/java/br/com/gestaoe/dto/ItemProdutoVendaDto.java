@@ -9,6 +9,7 @@ import java.io.Serializable;
 
 import br.com.gestaoe.entities.ItemProdutoVenda;
 import br.com.gestaoe.entities.Produto;
+import br.com.gestaoe.entities.Venda;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -41,14 +42,17 @@ public class ItemProdutoVendaDto  implements Serializable {
 	private int saidaQuantidade;
 	private double precoVenda;	
 	
+	private Venda venda;
+	
 	public ItemProdutoVendaDto(){}
 
 
-	public ItemProdutoVendaDto(Long id, Produto produto, int saidaQuantidade, double precoVenda) {
+	public ItemProdutoVendaDto(Long id, Produto produto, int saidaQuantidade, double precoVenda, Venda venda) {
 		this.id = id;
 		this.produto = produto;
 		this.saidaQuantidade = saidaQuantidade;
 		this.precoVenda = precoVenda;
+		this.venda = venda;
 	}
 
 
@@ -57,6 +61,7 @@ public class ItemProdutoVendaDto  implements Serializable {
 		this.produto = entity.getProduto();
 		this.saidaQuantidade = entity.getSaidaQuantidade();
 		this.precoVenda = entity.getPrecoVenda();
+		this.venda = entity.getVenda();
 	}
 
 
@@ -97,6 +102,16 @@ public class ItemProdutoVendaDto  implements Serializable {
 
 	public void setPrecoVenda(double precoVenda) {
 		this.precoVenda = precoVenda;
+	}
+
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
 
     

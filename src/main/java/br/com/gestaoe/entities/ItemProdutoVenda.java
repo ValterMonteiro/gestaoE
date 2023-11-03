@@ -7,9 +7,6 @@ package br.com.gestaoe.entities;
 
 import java.util.Objects;
 
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,16 +37,21 @@ public class ItemProdutoVenda{
 	
 	private int saidaQuantidade;
 	private double precoVenda;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_venda_fk")
+	private Venda venda;
     
     public ItemProdutoVenda() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ItemProdutoVenda(Long id, Produto produto, int saidaQuantidade, double precoVenda) {
+	public ItemProdutoVenda(Long id, Produto produto, int saidaQuantidade, double precoVenda,  Venda venda) {
 		this.id = id;
 		this.produto = produto;
 		this.saidaQuantidade = saidaQuantidade;
 		this.precoVenda = precoVenda;
+		this.venda = venda;
 	}
 
 	public Long getId() {
@@ -84,6 +86,15 @@ public class ItemProdutoVenda{
 
 	public void setPrecoVenda(double precoVenda) {
 		this.precoVenda = precoVenda;
+	}
+	
+
+	public Venda getVenda() {
+		return venda;
+	}
+
+	public void setVenda(Venda venda) {
+		this.venda = venda;
 	}
 
 	@Override
