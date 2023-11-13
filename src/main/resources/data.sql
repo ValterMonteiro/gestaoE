@@ -32,11 +32,39 @@ INSERT INTO tb_item_produto_compra (id_produto_fk, entrada_quantidade, preco_cus
 INSERT INTO tb_item_produto_compra (id_produto_fk, entrada_quantidade, preco_custo, id_compra_fk) VALUES (4, 10, 5.00, 1);
 INSERT INTO tb_item_produto_compra (id_produto_fk, entrada_quantidade, preco_custo, id_compra_fk) VALUES (5, 10, 5.00, 1);
 
-INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 1, '2023-01-01');
-INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 2, '2023-01-01');
+//venda produto 1
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 1, '2023-01-05');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 2, '2023-01-06');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 3, '2023-01-08');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 4, '2023-01-10');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 5, '2023-01-20');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 6, '2023-01-21');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 7, '2023-01-22');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 8, '2023-01-23');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 9, '2023-01-24');
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 10, '2023-01-27');
 
-INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 5.00, 1);
-INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (2, 1, 5.00, 1);
+//item venda produto 1
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 1);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 2);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 3);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 4);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 5);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 6);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 7);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 8);
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 9);
+//INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (1, 1, 25.00, 10);
+
+//venda produto 2
+INSERT INTO tb_venda (id_funcionario_fk, id_cliente_fk, nfe_venda, data) VALUES (1, 1, 2, '2023-01-05');
+
+//item venda produto 2
+INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (2, 1, 25.00, 10);
+
+
+//INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (2, 1, 25.00, 11);
+//INSERT INTO tb_item_produto_venda (id_produto_fk, saida_quantidade, preco_venda, id_venda_fk) VALUES (2, 1, 5.00, 12);
 
 //instrução para a tabela de contro de estoque
 SELECT
