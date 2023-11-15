@@ -83,7 +83,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 				WHERE
 					tb_produto.id = ?1
 
-				UNION ALL
+				UNION
 
 				SELECT
 					tb_venda.data AS data,
